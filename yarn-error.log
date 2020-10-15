@@ -1,0 +1,35 @@
+Arguments: 
+  /usr/local/Cellar/node/12.12.0/bin/node /usr/local/bin/yarn add express nodemon lodash
+
+PATH: 
+  /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  12.12.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:60:26)
+
+npm manifest: 
+  {
+    "name": "algoExercise",
+    "version": "1.0.0",
+    "description": "I log algorithm and data structure exercise here",
+    "main": "index.js",
+    "repository": "https://github.com/lucasdozie/algoExercise.gi",
+    "author": "lucasdozie <lucasatwon@gmail.com>",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
