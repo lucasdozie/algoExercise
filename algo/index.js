@@ -12,7 +12,10 @@ const algo = (req, res, next) => {
             console.log(questionHash," === singleNumberLL ===",inputArray)
             outputL = _singleNumber(inputArray)
             break;
-    case "bfsShortDistance":
+        case "isHappy":
+            outputL = isHappy(inputArray)
+            break;        
+        case "bfsShortDistance":
             console.log(questionHash," === bfsShortDistance ===",inputArray)
             outputL = _bfsShortDistance(inputArray)
             break;
@@ -61,6 +64,32 @@ const _singleNumber = async (arr = []) => {
     }catch(err){
         console.log("Error: ",err)
     }
+}
+
+/***
+ * Write an algorithm to determine if a number n is "happy".
+
+A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers.
+
+Return True if n is a happy number, and False if not.
+ */
+const isHappy = (n) => {
+    let result = 0;
+    // convert n to string then seperate them
+    let ntoString = n.toString()//.split()
+    for(var i = 0; i < ntoString.length; i++){
+      let toIntV = parseInt(ntoString[i]);
+      let toSquare = toIntV * toIntV;
+      result = result + toSquare
+      //console.log(typeof result,"= ntoString", typeof result)
+    }
+    console.log(ntoString.length,"=== ntoString ==result: ",result)
+    //use recursion
+    
+    if(result !== 1){
+        isHappy(result)
+    }
+  	return true
 }
 
 /**
