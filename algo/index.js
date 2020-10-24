@@ -31,49 +31,33 @@ const algo = (req, res, next) => {
 * 
 ***
  * **/
-const _singleNumber = async (inputArray = []) => {
+const _singleNumber = async (arr = []) => {
     try{
         
-        const resL = 0;
-        inputArray = JSON.parse(inputArray)
+        arr = JSON.parse(arr)
         let len = inputArray.length
-        console.log(len," :=== _singleNumber ===: ",inputArray)
         
         if(len < 1){
             return;
         }
         if(len == 1){
-            return inputArray[0]
+            return arr[0]
         }
-        let _notSingleVar = []
-        let _singleVar = []
-        //sort array
-        inputArray = inputArray.sort()
-        let visited = inputArray.map(ele => ele = false).filter(ele => ele != true);
-        console.log(typeof inputArray,"=== inputArray visit? ===",visited);
-        
-        for(var i = 0; i < inputArray.length - 1; i++){
-            let k = len - 1;
-            //console.log(i,` :i ${inputArray[i]}==== !visited === k`,k)
-            //element count increment if duplicate found in while
-            var z = 0
-            while(i < k){
-                console.log(`${inputArray[i]} ==== ${inputArray[k]}`)
-                if(inputArray[i] == inputArray[k]){
-                    z++
+        for(var i = 0; i < arr.length; i++){
+            let j = arr.length;
+            while(j > 0){
+                if(j !== i && arr[i] == arr[j] && dupArr.indexOf(arr[i]) == -1){
+                    dupArr.push(arr[i])
                 }
-                k--;
-                console.log("k ",k)
-            }
-            console.log(z," == z: ",inputArray[i])
-            if(z == 0){
-                _singleVar.push(inputArray[i])
-                console.log(" the result is  z: ",_singleVar)
-                //return inputArray[i]
+              j--;
             }
         }
-        console.log("_singleVar: ",_singleVar)
-        return resL;
+        arr.map(item => {
+            if(dupArr.indexOf(item) == -1){
+              singleVal = item
+            }
+        })
+        return singleVal;
     }catch(err){
         console.log("Error: ",err)
     }
