@@ -14,7 +14,10 @@ const algo = (req, res, next) => {
             break;
         case "isHappy":
             outputL = isHappy(inputArray)
-            break;        
+            break;
+        case "maxSubArray":
+            outputL = maxSubArray(inputArray);
+            break;
         case "bfsShortDistance":
             console.log(questionHash," === bfsShortDistance ===",inputArray)
             outputL = _bfsShortDistance(inputArray)
@@ -151,6 +154,37 @@ const _bfsShortDistance = (matrix) => {
         console.log("err: ", err)
     }
 }
+
+const maxSubArray = (nums) => {
+    console.log(nums.length," j =")
+      //TODO: 
+      //check if nums length and make sure its not less than 2, if it is return index 0
+      // since it contiguous, sorting is out of the picture
+      //
+        if(nums.length == 0){
+         return 0;
+      }
+      if(nums.length < 1){
+         return nums[0];
+      }
+        
+      let max_sum = Number.NEGATIVE_INFINITY;//Math.min_value;//nums[0]
+      let len = nums.length;
+      for(var i = 0; i < len; i++){
+          let current_sum = 0;
+          let j = i;// + 1;
+          while(j < len){
+              current_sum += nums[j];
+              if(current_sum > max_sum){
+                 max_sum = current_sum;
+                console.log("max_sum so far ",max_sum)
+              }
+              j++;
+          }
+      }
+      
+      return max_sum;
+  };
 
 module.exports = {
     algo
